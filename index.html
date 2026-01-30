@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>SPMB Tahun Ajaran 2026 - 2027</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron',sans-serif;}
+html,body{height:100%;}
+
+.bg-video,
+.bg-img{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-3;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:-2;
+}
+
+.container{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.box{
+  width:90%;
+  max-width:900px;
+  background:rgba(0,0,0,.75);
+  border-radius:20px;
+  padding:30px;
+  border:2px solid gold;
+  box-shadow:0 0 20px gold;
+  color:white;
+  text-align:center;
+}
+
+h1{color:gold;margin-bottom:15px;}
+p{margin-bottom:20px;}
+
+section{
+  padding:20px;
+  border:2px solid gold;
+  border-radius:15px;
+}
+
+.download-btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:12px 28px;
+  border:2px solid gold;
+  color:gold;
+  text-decoration:none;
+  border-radius:30px;
+  transition:.3s;
+}
+
+.download-btn:hover{
+  background:gold;
+  color:black;
+}
+
+/* tombol musik */
+.music-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:black;
+  color:gold;
+  border:2px solid gold;
+  padding:10px 18px;
+  border-radius:25px;
+  cursor:pointer;
+  z-index:999;
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND VIDEO -->
+<video class="bg-video" autoplay muted loop playsinline>
+  <source src="SPMB.mp4" type="video/mp4">
+</video>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" src="music.mp3.mp3" loop></audio>
+
+<div class="overlay"></div>
+
+<button class="music-btn" onclick="toggleMusic()">🔊 Musik</button>
+
+<div class="container" onclick="startMusic()">
+  <div class="box">
+    <h1>SMP Negeri 1 Sindang — SPMB Tahun Ajaran 2026–2027</h1>
+    <p>Silakan unduh formulir resmi di bawah ini.</p>
+
+    <section>
+      <h2>Download Formulir</h2>
+      <a href="Form_Data_Siswa_2026.docx" download class="download-btn">Download Formulir</a>
+    </section>
+  </div>
+</div>
+
+<script>
+const music = document.getElementById("bgMusic");
+
+function startMusic(){
+  music.play().catch(()=>{});
+}
+
+function toggleMusic(){
+  if(music.paused){
+    music.play();
+  } else {
+    music.pause();
+  }
+}
+</script>
+
+</body>
+</html>
